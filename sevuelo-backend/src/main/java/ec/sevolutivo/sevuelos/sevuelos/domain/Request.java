@@ -35,6 +35,11 @@ public class Request implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private RequestStatus status;
+    
+    
+    @Size(max = 100)
+    @Column(name = "observation", length = 100, nullable = true)
+    private String observation;
 
     public Long getId() {
         return id;
@@ -68,6 +73,13 @@ public class Request implements Serializable {
         this.status = status;
     }
 
+    public String getObservation() {
+        return this.observation;
+    }
+
+    public void setObservation(String observation) {
+        this.observation = observation;
+    }
 
     @Override
     public boolean equals(Object o) {

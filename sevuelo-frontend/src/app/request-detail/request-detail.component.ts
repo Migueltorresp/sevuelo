@@ -40,4 +40,13 @@ export class RequestDetailComponent implements OnInit {
     );
   }
 
+  undo(): void{
+    this.requestService.undoRequest(this.request)
+    .subscribe((newRequest) => {
+      this.request = newRequest
+      this.previousState();
+    }
+  );
+  }
+
 }

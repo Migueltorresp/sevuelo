@@ -53,5 +53,12 @@ public class RequestResource {
         requestRepository.save(request);
     }
 
+    @PutMapping("/undo")
+    public void undo(@RequestBody Request request) {
+        log.debug("REST request to reserve a flight");
+        request.setStatus(RequestStatus.NEW);
+        requestRepository.save(request);
+    }
+
 
 }
